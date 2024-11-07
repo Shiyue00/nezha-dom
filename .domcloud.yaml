@@ -1,0 +1,7 @@
+build:
+  - wget https://github.com/nezhahq/agent/releases/latest/download/nezha-agent_linux_amd64.zip
+  - unzip nezha-agent_linux_amd64.zip
+  - mv nezha-agent agent
+  - chmod +x agent
+
+run: python3 app.py
