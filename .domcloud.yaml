@@ -1,20 +1,7 @@
-build:
-  python: "3.9"
-  
-run:
-  web: python app.py
-
-domains:
-  - ${DOMAIN}
-
-env:
-  - PORT=8080
-
-nginx:
-  server_names_hash_bucket_size: 64
-  locations:
-    /:
-      proxy_pass: http://127.0.0.1:8080
-      proxy_set_header: 
-        Host: $host
-        X-Real-IP: $remote_addr
+python: "3.9"
+install:
+  - wget https://github.com/nezhahq/agent/releases/latest/download/nezha-agent_linux_amd64.zip
+  - unzip nezha-agent_linux_amd64.zip
+  - mv nezha-agent agent
+  - rm nezha-agent_linux_amd64.zip
+  - pip install -r requirements.txt
