@@ -9,3 +9,6 @@ domains:
 
 env:
   - PORT=8080
+  
+nginx:
+  server_names_hash_bucket_size: 128
