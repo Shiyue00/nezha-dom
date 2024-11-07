@@ -1,5 +1,17 @@
 python: "3.9"
-nginx: nginx.conf
+webroot: public
+nginx:
+  locations:
+    /:
+      root: public
+      try_files: $uri $uri/ @python
+    @python:
+      proxy_pass: http://127.0.0.1:8080
+      proxy_set_header:
+        Host: $host
+        X-Real-IP: $remote_addr
+        X-Forwarded-For: $proxy_add_x_forwarded_for
+        X-Forwarded-Proto: $scheme
 install:
   - wget https://github.com/nezhahq/agent/releases/latest/download/nezha-agent_linux_amd64.zip
   - unzip nezha-agent_linux_amd64.zip
