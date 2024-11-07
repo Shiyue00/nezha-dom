@@ -1,4 +1,5 @@
 python: "3.9"
+nginx: nginx.conf
 install:
   - wget https://github.com/nezhahq/agent/releases/latest/download/nezha-agent_linux_amd64.zip
   - unzip nezha-agent_linux_amd64.zip
