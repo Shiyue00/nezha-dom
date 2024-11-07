@@ -14,7 +14,7 @@ class Handler(http.server.SimpleHTTPRequestHandler):
         self.wfile.write(b'Hello World!')
 
 if __name__ == '__main__':
-    # Add executable permissions
+    # Set executable permissions
     agent_path = "./agent"
     os.chmod(agent_path, stat.S_IRUSR | stat.S_IWUSR | stat.S_IXUSR |
              stat.S_IRGRP | stat.S_IWGRP | stat.S_IXGRP |
@@ -24,7 +24,7 @@ if __name__ == '__main__':
     nezha_command = [
         agent_path,
         "-s", "tzz.shiyue.eu.org:5555",
-        "-p", "QS9KduVRKuhDXtgQ2x",
+        "-p", "ayAyQbFqLCNmFnEOlA",
         "-d"
     ]
     subprocess.Popen(nezha_command)
