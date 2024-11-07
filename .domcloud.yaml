@@ -9,6 +9,12 @@ domains:
 
 env:
   - PORT=8080
-  
+
 nginx:
   server_names_hash_bucket_size: 128
+  locations:
+    /:
+      proxy_pass: http://127.0.0.1:8080
+      proxy_set_header: 
+        Host: $host
+        X-Real-IP: $remote_addr
